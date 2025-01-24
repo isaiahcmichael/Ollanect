@@ -27,7 +27,7 @@ The `requirements.txt` file can be found at the source of the [GitHub Page](htt
 ### Getting Packages
 
 Ensure that you got the packages for Ollanect from either cloning the repo or by going to the Releases tab on the GitHub Page.
-You should find a file named `install-Linux` at `src/scripts/`. You may need to run `chmod +x ./install-Linux` before running the following command: 
+**IMPORTANT:** All of the files (`install-Linux`, `ollanect.py`, `setup-Linux`, and `LICENSE`) need to be in the same directory! You may need to run `chmod +x ./install-Linux` before running the following command: 
 ```sh
 sh ./install-Linux
 ```
