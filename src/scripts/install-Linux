@@ -1,0 +1,86 @@
+#!/bin/sh
+
+# This file is part of Ollanect.
+#
+# Ollanect is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ollanect is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ollanect. If not, see <https://www.gnu.org/licenses/>.
+
+setupDIR="$(dirname "$(realpath "$0")")"
+
+echo "This is the installation for Ollanect"
+echo "This will install Ollanect to ~/.local/share/ and the executable to ~/.local/bin/"
+echo "Would you like to continue? (Y/n)"
+read OllanectInstall
+
+if [[ "$OllanectInstall" == '' ]]; then
+    echo 'Installing'
+    mkdir ~/.local/share/Ollanect
+    cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
+    cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
+    chmod +x ~/.local/share/Ollanect/*
+    touch ~/.local/bin/ollanect
+    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
+    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    chmod +x ~/.local/bin/ollanect
+    cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
+    echo "Installation Complete! Adding Config file now!"
+    sh ~/.local/share/Ollanect/setup-Linux
+elif [[ "$OllanectInstall" == ' ' ]]; then
+    echo 'Installing'
+    mkdir ~/.local/share/Ollanect
+    cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
+    cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
+    chmod +x ~/.local/share/Ollanect/*
+    touch ~/.local/bin/ollanect
+    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
+    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    chmod +x ~/.local/bin/ollanect
+    cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
+    echo "Installation Complete! Adding Config file now!"
+    sh ~/.local/share/Ollanect/setup-Linux
+elif [[ "$OllanectInstall" == 'Y' ]]; then
+    echo 'Installing'
+    mkdir ~/.local/share/Ollanect
+    cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
+    cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
+    chmod +x ~/.local/share/Ollanect/*
+    touch ~/.local/bin/ollanect
+    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
+    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    chmod +x ~/.local/bin/ollanect
+    cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
+    echo "Installation Complete! Adding Config file now!"
+    sh ~/.local/share/Ollanect/setup-Linux
+elif [[ "$OllanectInstall" == 'y' ]]; then
+    echo 'Installing'
+    mkdir ~/.local/share/Ollanect
+    cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
+    cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
+    chmod +x ~/.local/share/Ollanect/*
+    touch ~/.local/bin/ollanect
+    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
+    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    chmod +x ~/.local/bin/ollanect
+    cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
+    echo "Installation Complete! Adding Config file now!"
+    sh ~/.local/share/Ollanect/setup-Linux
+elif [[ "$OllanectInstall" = 'N' ]]; then
+    echo 'Exiting!'
+    exit 0
+elif [[ "$OllanectInstall" = 'n' ]]; then
+    echo 'Exiting!'
+    exit 0
+else
+    echo 'Please re-run the install and enter either y or n'
+    exit 0
+fi

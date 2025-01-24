@@ -1,0 +1,40 @@
+#!/bin/sh
+
+# This file is part of Ollanect.
+#
+# Ollanect is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ollanect is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ollanect. If not, see <https://www.gnu.org/licenses/>.
+
+echo "This is the setup for Ollanect"
+
+appDIR="$(dirname "$(realpath "$0")")"
+
+mkdir $appDIR/config/
+touch $appDIR/config/serverInfo
+
+echo "What is your Ollama Server URL (Do not include port and HTTP)"
+read ServerURL
+printf "$ServerURL" >> $appDIR/config/serverInfo
+
+echo "What is the port of your Server? (The default port is 11434)"
+read ServerPort
+if [[ "$ServerPort" == '' ]]; then
+    printf ":11434" >> $appDIR/config/serverInfo
+elif [[ "$ServerPort" == ' ' ]]; then
+    printf ":11434" >> $appDIR/config/serverInfo
+else
+    printf ":$ServerPort" >> $appDIR/config/serverInfo
+fi
+
+echo 'Complete!'
+python3 $appDIR/ollanect.py
