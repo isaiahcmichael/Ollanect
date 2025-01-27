@@ -39,6 +39,13 @@ To start the application, run:
 ollanect
 ```
 
+#### Options
+There are options/flags that you can choose from. The general format of these are `ollanect {flag/option} {input}`. To see all options, run: 
+```sh
+ollanect --help
+```
+A basic list of options are: `--help`, `--license`, `--model`, and `--prompt`. A full page of options/flags may be added in the future.
+
 ## License
 
 Ollanect is licensed under the **GNU General Public License v3.0**.
