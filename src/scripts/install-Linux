@@ -28,9 +28,7 @@ if [[ "$OllanectInstall" == '' ]]; then
     cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
     cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
     chmod +x ~/.local/share/Ollanect/*
-    touch ~/.local/bin/ollanect
-    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
-    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     echo "Installation Complete! Adding Config file now!"
@@ -41,9 +39,7 @@ elif [[ "$OllanectInstall" == ' ' ]]; then
     cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
     cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
     chmod +x ~/.local/share/Ollanect/*
-    touch ~/.local/bin/ollanect
-    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
-    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     echo "Installation Complete! Adding Config file now!"
@@ -54,9 +50,7 @@ elif [[ "$OllanectInstall" == 'Y' ]]; then
     cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
     cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
     chmod +x ~/.local/share/Ollanect/*
-    touch ~/.local/bin/ollanect
-    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
-    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     echo "Installation Complete! Adding Config file now!"
@@ -67,9 +61,7 @@ elif [[ "$OllanectInstall" == 'y' ]]; then
     cp $setupDIR/ollanect.py ~/.local/share/Ollanect/ollanect.py
     cp $setupDIR/setup-Linux ~/.local/share/Ollanect/setup-Linux
     chmod +x ~/.local/share/Ollanect/*
-    touch ~/.local/bin/ollanect
-    printf "#!/bin/sh \n" >> ~/.local/bin/ollanect
-    printf "python3 ~/.local/share/Ollanect/ollanect.py" >> ~/.local/bin/ollanect
+    ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     echo "Installation Complete! Adding Config file now!"

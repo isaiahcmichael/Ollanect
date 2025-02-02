@@ -22,7 +22,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect
+Ollanect - Version 0.1.5
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -43,14 +43,29 @@ Options:
 --prompt -m - Specifies Prompt (example --prompt 'When was GitHub created?')
 """
 
+HELP_TEXT_CHAT = """
+Ollanect Chat Help:
+
+Type your prompt and press Enter to get a response.
+Options:
+/help or /? - Shows this menu
+/exit - Exits the chat
+"""
+
 if "--help" in sys.argv:
     print(HELP_TEXT)
     sys.exit(0)
+elif '--help-chat' in sys.argv:
+    print(HELP_TEXT_CHAT)
+    sys.exit(0)
+else:
+    pass
 
 if "--license" in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
 
+# Finds the config file for Ollanect. If not found, the setup script runs
 try:
     scriptLocation = os.path.dirname(os.path.realpath(__file__))
     infoFile = open(f'{scriptLocation}/config/serverInfo', 'r')
@@ -63,6 +78,7 @@ except FileNotFoundError:
         quit()
 
 def getServer(infoFile):
+    # Gets the server info
     lines = infoFile.readlines()
     if lines:
         inputServer = lines[0]
@@ -71,6 +87,7 @@ def getServer(infoFile):
 
 inputServer = getServer(infoFile)
 
+# Defines the URL for the Ollama Server
 apiURL = f"http://{inputServer}/api/"
 
 def getModel():
@@ -89,9 +106,9 @@ def getModel():
         else:
             print("Option --model expected one argument, got 0.")
     else:
-
+        # Gets the info for the model used, if not already specified
         try:
-            # Send a GET request to retrieve available models
+            # Sends a response to get available models (GET)
             response = requests.get(f'{apiURL}tags')
             response.raise_for_status()  # Raise an error for HTTP errors
 
@@ -124,6 +141,7 @@ def getModel():
             print("Invalid model. Please enter a valid model name from the list.")
 
 def getPrompt():
+    # Gets the prompt if not already specified
     print('Prompt:')
     inputPrompt = input('> ')
     return inputPrompt
@@ -136,6 +154,7 @@ else:
     chat = True
 
 def getData(apiURL,inputModel,chat):
+    # Gets the prompt if already specified
     if "-p" in sys.argv:
         pFlag = sys.argv.index("-p")
         if pFlag + 1 < len(sys.argv):
@@ -152,7 +171,18 @@ def getData(apiURL,inputModel,chat):
             print("Option --prompt expected 1 element, got 0")
     else:
         inputPrompt = getPrompt()
+    
+    # Chat options
+    if inputPrompt == '/exit':
+        print('\nExiting!')
+        sys.exit(0)
+    elif inputPrompt in ['/help', '/?']:
+        print(HELP_TEXT_CHAT)
+        sys.exit(0)
+    else:
+        pass
 
+    # Defines what is sent to the server and sends it (requests.post)
     payload = {
         "model": inputModel,
         "prompt": inputPrompt,
@@ -186,3 +216,5 @@ def getData(apiURL,inputModel,chat):
         sys.exit(0)
 
 getData(apiURL,inputModel,chat)
+
+# End of Ollanect File.

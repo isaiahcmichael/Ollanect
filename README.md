@@ -2,7 +2,11 @@
 
 ## Overview
 
-Ollanect is an open-source terminal-based application designed to connect to an Ollama server (or any other AI server that works similar to Ollama\*) of your choice.
+Ollanect is an open-source terminal-based application designed to connect to an Ollama server (or any other AI server that works similar to Ollama\*) of your choice. 
+
+You can see updates at [updates.md](./updates.md)
+
+**NOTE**: Ollanect is something that I do as a personal hobby, so it may be something that I quit at any time.
 
 \* - Ollama is the only currently supported AI runner. Take caution when using with anything other than Ollama.
 
