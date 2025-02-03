@@ -1,5 +1,12 @@
 # Ollanect Updates
 
+## Latest Commits (Main Branch)
+Added `/quit` and `/bye` to chat, both work in same way as `/exit`
+
+Added `--version` to Ollanect command. Prints out same output as `--license`.
+
+See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main)
+
 ## v0.1.5
 Added new warning to [README.md](./README.md)
 

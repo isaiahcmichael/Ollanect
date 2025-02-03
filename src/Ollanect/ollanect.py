@@ -22,7 +22,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.1.5
+Ollanect - Version 0.1.5 + Commit 1 (2025-02-03)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -49,7 +49,7 @@ Ollanect Chat Help:
 Type your prompt and press Enter to get a response.
 Options:
 /help or /? - Shows this menu
-/exit - Exits the chat
+/exit, /quit, or /bye - Exits the chat
 """
 
 if "--help" in sys.argv:
@@ -62,6 +62,9 @@ else:
     pass
 
 if "--license" in sys.argv:
+    print(LICENSE_TEXT)
+    sys.exit(0)
+elif '--version' in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
 
@@ -173,7 +176,7 @@ def getData(apiURL,inputModel,chat):
         inputPrompt = getPrompt()
     
     # Chat options
-    if inputPrompt == '/exit':
+    if inputPrompt in ['/exit', '/quit', '/bye']:
         print('\nExiting!')
         sys.exit(0)
     elif inputPrompt in ['/help', '/?']:
