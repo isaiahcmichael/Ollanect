@@ -22,7 +22,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.1.5 + Commit 1 (2025-02-03)
+Ollanect - Version 0.1.5 + Commit 2 (2025-02-03)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -36,11 +36,12 @@ Ollanect Help:
 
 Usage: ollanect [options]
 Options:
---help - Shows this menu
+--help or -h - Shows this menu
 --license - Shows Ollanect's license
 --one-prompt - Does not continue chat
 --model or -m - Defines Model (example: --model phi4:latest)
---prompt -m - Specifies Prompt (example --prompt 'When was GitHub created?')
+--prompt or -p - Specifies Prompt (example --prompt 'When was GitHub created?')
+--version - Prints the version of Ollanect
 """
 
 HELP_TEXT_CHAT = """
@@ -57,6 +58,9 @@ if "--help" in sys.argv:
     sys.exit(0)
 elif '--help-chat' in sys.argv:
     print(HELP_TEXT_CHAT)
+    sys.exit(0)
+elif '-h' in sys.argv:
+    print(HELP_TEXT)
     sys.exit(0)
 else:
     pass

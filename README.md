@@ -48,7 +48,7 @@ There are options/flags that you can choose from. The general format of these ar
 ```sh
 ollanect --help
 ```
-A basic list of options are: `--help`, `--license`, `--model`, and `--prompt`. A full page of options/flags may be added in the future.
+You can see Ollanect's help page for [Flags and Options](help/ollanectOptions.md) for the full list of Flag and Options.
 
 ## License
 
