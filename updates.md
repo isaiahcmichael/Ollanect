@@ -3,7 +3,7 @@
 ## Latest Commits (Main Branch)
 Added `/quit` and `/bye` to chat, both work in same way as `/exit`
 
-Added `--version` to Ollanect command. Prints out same output as `--license`.
+Added `--version` and `-v` to Ollanect command. Prints out same output as `--license`.
 
 Added `-h` to Ollanect command. Works the same as `--help`
 

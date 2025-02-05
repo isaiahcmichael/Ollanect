@@ -41,7 +41,7 @@ Options:
 --one-prompt - Does not continue chat
 --model or -m - Defines Model (example: --model phi4:latest)
 --prompt or -p - Specifies Prompt (example --prompt 'When was GitHub created?')
---version - Prints the version of Ollanect
+--version or -v - Prints the version of Ollanect
 """
 
 HELP_TEXT_CHAT = """
@@ -69,6 +69,9 @@ if "--license" in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
 elif '--version' in sys.argv:
+    print(LICENSE_TEXT)
+    sys.exit(0)
+elif '-v' in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
 
