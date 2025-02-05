@@ -1,13 +1,17 @@
 # Ollanect Updates
 
-## Latest Commits (Main Branch)
+## v0.1.8
 Added `/quit` and `/bye` to chat, both work in same way as `/exit`
 
 Added `--version` and `-v` to Ollanect command. Prints out same output as `--license`.
 
 Added `-h` to Ollanect command. Works the same as `--help`
 
-See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main)
+Changed config files to be correctly held in `~/.config/Ollanect`
+
+Fixed wording error under `v0.1.5` in [updates.md](./updates.md)
+
+See [Ollanect v0.1.8](https://github.com/isaiahcmichael/Ollanect/tree/v0.1.5) for files.
 
 ## v0.1.5
 Added new warning to [README.md](./README.md)
@@ -22,7 +26,7 @@ Changed [install-Linux](./src/scripts/install-Linux) to make a link instead of a
 
 Added Ollanect's Version to Ollanect help.
 
-See [Ollanect Main](https://github.com/isaiahcmichael/Ollanect/tree/v0.1.5) for files.
+See [Ollanect v0.1.5](https://github.com/isaiahcmichael/Ollanect/tree/v0.1.5) for files.
 
 ## v0.1.1
 Added flags to Ollanect. `--help` shows all of the flags/options that you can use.

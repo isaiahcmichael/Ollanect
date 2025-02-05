@@ -19,21 +19,21 @@ echo "This is the setup for Ollanect"
 
 appDIR="$(dirname "$(realpath "$0")")"
 
-mkdir $appDIR/config/
-touch $appDIR/config/serverInfo
+mkdir ~/.config/Ollanect
+touch ~/.config/Ollanect/serverInfo
 
 echo "What is your Ollama Server URL (Do not include port and HTTP)"
 read ServerURL
-printf "$ServerURL" >> $appDIR/config/serverInfo
+printf "$ServerURL" >> ~/.config/Ollanect/serverInfo
 
 echo "What is the port of your Server? (The default port is 11434)"
 read ServerPort
 if [[ "$ServerPort" == '' ]]; then
-    printf ":11434" >> $appDIR/config/serverInfo
+    printf ":11434" >> ~/.config/Ollanect/serverInfo
 elif [[ "$ServerPort" == ' ' ]]; then
-    printf ":11434" >> $appDIR/config/serverInfo
+    printf ":11434" >> ~/.config/Ollanect/serverInfo
 else
-    printf ":$ServerPort" >> $appDIR/config/serverInfo
+    printf ":$ServerPort" >> ~/.config/Ollanect/serverInfo
 fi
 
 echo 'Complete!'

@@ -42,6 +42,9 @@ ollanect -p 'When was GitHub created?'
 ### `--help-chat`
 Displays Ollanect's chat commands. See [**Chat Commands**](#chat-commands) for chat commands.
 
+## `--version` or `-v`
+Displays Ollanect's commands and License.
+
 ## Chat Commands
 
 When in chat mode, you can use the following commands:

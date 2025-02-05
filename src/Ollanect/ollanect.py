@@ -22,7 +22,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.1.5 + Commit 2 (2025-02-03)
+Ollanect - Version 0.1.8
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -76,11 +76,14 @@ elif '-v' in sys.argv:
     sys.exit(0)
 
 # Finds the config file for Ollanect. If not found, the setup script runs
+systemOS = platform.system()
 try:
     scriptLocation = os.path.dirname(os.path.realpath(__file__))
-    infoFile = open(f'{scriptLocation}/config/serverInfo', 'r')
+    if systemOS == 'Linux':
+        userHome = os.environ['HOME']
+        infoFile = open(f'{userHome}/.config/Ollanect/serverInfo', 'r')
+    #infoFile = open(f'{scriptLocation}/config/serverInfo', 'r')
 except FileNotFoundError:
-    systemOS = platform.system()
     if systemOS == 'Linux':
         scriptLocation = os.path.dirname(os.path.realpath(__file__))
         os.system(f'chmod +x {scriptLocation}/setup-Linux')
