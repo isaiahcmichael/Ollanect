@@ -1,0 +1,9 @@
+# Ignore the .vscode folder
+.vscode/
+
+# Ignore log files
+*.log
+
+# Ignore unneeded Python files
+__pycache__/
+*.pyc
