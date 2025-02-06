@@ -1,5 +1,16 @@
 # Ollanect Updates
 
+## Latest Commits
+Added Windows [installer](./src/scripts/install-Windows.bat) and [setup](./src/Ollanect/setup-Windows.bat) files!
+
+Fixed URL problem in [updates.md](./updates.md) under `v0.1.8`
+
+Removed commented Line 85 in Ollanect's [main file](./src/Ollanect/ollanect.py)
+
+Added Windows support! **NOTE**: All Windows Support is currently Experimental. Ollanect may not work on Windows correctly yet. Further Testing Required!
+
+See [Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files
+
 ## v0.1.8
 Added `/quit` and `/bye` to chat, both work in same way as `/exit`
 
@@ -11,7 +22,7 @@ Changed config files to be correctly held in `~/.config/Ollanect`
 
 Fixed wording error under `v0.1.5` in [updates.md](./updates.md)
 
-See [Ollanect v0.1.8](https://github.com/isaiahcmichael/Ollanect/tree/v0.1.5) for files.
+See [Ollanect v0.1.8](https://github.com/isaiahcmichael/Ollanect/tree/v0.1.8) for files.
 
 ## v0.1.5
 Added new warning to [README.md](./README.md)

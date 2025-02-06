@@ -82,12 +82,17 @@ try:
     if systemOS == 'Linux':
         userHome = os.environ['HOME']
         infoFile = open(f'{userHome}/.config/Ollanect/serverInfo', 'r')
-    #infoFile = open(f'{scriptLocation}/config/serverInfo', 'r')
+    elif systemOS == 'Windows':
+        appData = os.environ['APPDATA']
+        infoFile = open(f'{appData}/Ollanect/serverInfo.txt', 'r')
 except FileNotFoundError:
     if systemOS == 'Linux':
         scriptLocation = os.path.dirname(os.path.realpath(__file__))
         os.system(f'chmod +x {scriptLocation}/setup-Linux')
         os.system(f'sh {scriptLocation}/setup-Linux')
+        quit()
+    elif systemOS == 'Windows':
+        os.system(r'"C:\Program Files\Ollanect\ollanectSetupWindows.bat"')
         quit()
 
 def getServer(infoFile):
