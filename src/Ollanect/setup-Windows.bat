@@ -6,12 +6,12 @@ mkdir "%configDir%" 2>nul
 echo. > "%configDir%\serverInfo.txt"
 
 set /p ServerURL=What is your Ollama Server URL (Do not include port and HTTP)? 
-echo|set /p=%ServerURL%> "%configDir%\serverInfo.txt"
 
 set /p ServerPort=What is the port of your Server? (The default port is 11434)? 
 if "%ServerPort%"=="" set ServerPort=11434
 if "%ServerPort%"==" " set ServerPort=11434
-echo:%ServerPort%>> "%configDir%\serverInfo.txt"
+
+echo %ServerURL%:%ServerPort%> "%configDir%\serverInfo.txt"
 
 echo Complete!
 python "%~dp0ollanect.py"
