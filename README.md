@@ -19,23 +19,53 @@ You can see updates at [updates.md](./updates.md)
 ## Installation
 
 ### Requirements
+Ensure you have Python installed. You can install Python at [python.org](https://www.python.org/downloads/) if you don't have it installed.
 
-Ensure you have Python installed. You can install dependencies using:
+### Install (Linux - Official ZIP)
+To install Ollanect on Linux using the official ZIP, you must unzip the ZIP file. You can download the ZIP file from the [releases page](https://github.com/isaiahcmichael/ollanect/releases/latest). After unzipping the zip file, you will run the following commands:
 
 ```sh
-pip install -r requirements.txt
+cd OllanectV{version} # Replace {version} with the version number
+chmod +x ./install-Linux
+./install-Linux
 ```
 
-The `requirements.txt` file can be found at the source of the [GitHub Page](https://github.com/isaiahcmichael/ollanect), along with the release in "Releases" on the GitHub Page.
+### Install (Windows - Official ZIP)
+To install Ollanect on Windows using the official ZIP, you must unzip the ZIP file. You can download the ZIP file from the [releases page](https://github.com/isaiahcmichael/ollanect/releases/latest). After unzipping the zip file, you will need to run `install-Windows.bat` as Admin.
 
-### Getting Packages
+### Install (`git clone`)
+To install OLlanect using `git clone`, you will need to run the following command in your terminal:
 
-Ensure that you got the packages for Ollanect from either cloning the repo or by going to the Releases tab on the GitHub Page.
-**IMPORTANT:** All of the files (`install-Linux`, `ollanect.py`, `setup-Linux`, and `LICENSE`) need to be in the same directory! You may need to run `chmod +x ./install-Linux` before running the following command: 
+```
+git clone https://github.com/isaiahcmichael/Ollanect.git
+```
+
+#### Installing Cloned Files (Linux)
+After cloning the files, you will need the following files in a directory together:
+- `src/Ollanect/ollanect.py`
+- `src/Ollanect/setup-Linux`
+- `src/scripts/install-Linux`
+- `requirements.txt`
+- `LICENSE`
+
+After putting all of the files above into a directory, you will need to run the following commands:
+
 ```sh
-sh ./install-Linux
+chmod +x ./install-Linux
+./install-Linux
 ```
-### Running Ollanect
+
+#### Installing Cloned Files (Windows)
+After cloning the files, you will need the following files in a directory together:
+- `src/Ollanect/ollanect.py`
+- `src/Ollanect/setup-Windows.bat`
+- `src/scripts/install-Windows.bat`
+- `requirements.txt`
+- `LICENSE`
+
+After putting all of the files above into a directory, you will need to run `install-Windows.bat` as Admin.
+
+## Running Ollanect
 
 To start the application, run:
 
@@ -43,7 +73,7 @@ To start the application, run:
 ollanect
 ```
 
-#### Options
+### Options
 There are options/flags that you can choose from. The general format of these are `ollanect {flag/option} {input}`. To see all options, run: 
 ```sh
 ollanect --help

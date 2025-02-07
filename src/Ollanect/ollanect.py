@@ -1,5 +1,3 @@
-#!/bin/python3
-
 # This file is part of Ollanect.
 #
 # Ollanect is free software: you can redistribute it and/or modify
@@ -22,7 +20,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.1.8
+Ollanect - Version 0.2.0
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.

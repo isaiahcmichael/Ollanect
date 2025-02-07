@@ -1,15 +1,21 @@
 # Ollanect Updates
 
-## Latest Commits
+## v0.2.0
 Added Windows [installer](./src/scripts/install-Windows.bat) and [setup](./src/Ollanect/setup-Windows.bat) files!
 
 Fixed URL problem in [updates.md](./updates.md) under `v0.1.8`
 
 Removed commented Line 85 in Ollanect's [main file](./src/Ollanect/ollanect.py)
 
-Added Windows support! **NOTE**: All Windows Support is currently Experimental. Ollanect may not work on Windows correctly yet. Further Testing Required!
+Added Windows support! (Commit [f6ad518](https://github.com/isaiahcmichael/Ollanect/commit/f6ad5184234206486feb9ad3c47b3a0486dd5f85) brought Windows support to a more stable state!)
 
-See [Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files
+Allowed for [Linux install script](./src/scripts/install-Linux) to install requirements.txt file
+
+Removed `#!/bin/python3` at top of [ollanect.py](./src/Ollanect/ollanect.py) to add Windows support
+
+Fixed headers in [README.md](./README.md), removed installing requrements.txt file, and added Windows installation instructions
+
+See [Ollanect v0.2.0](https://github.com/isaiahcmichael/Ollanect/tree/v0.2.0) for files
 
 ## v0.1.8
 Added `/quit` and `/bye` to chat, both work in same way as `/exit`
