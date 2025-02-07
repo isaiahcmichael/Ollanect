@@ -65,6 +65,9 @@ After cloning the files, you will need the following files in a directory togeth
 
 After putting all of the files above into a directory, you will need to run `install-Windows.bat` as Admin.
 
+### Install (Windows - WSL)
+If you want to use Windows Subsystem for Linux (or WSL) to install Ollanect, you can login to your WSL terminal and follow the instructions shown in the [Install (Linux - Official ZIP)](#install-linux---official-zip) or [Install (`git clone`)](#install-git-clone) sections.
+
 ## Running Ollanect
 
 To start the application, run:
