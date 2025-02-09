@@ -20,7 +20,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.2.0
+Ollanect - Version 0.2.0 (Commit 2)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -40,6 +40,7 @@ Options:
 --model or -m - Defines Model (example: --model phi4:latest)
 --prompt or -p - Specifies Prompt (example --prompt 'When was GitHub created?')
 --version or -v - Prints the version of Ollanect
+--file or -f - Uploads a file
 """
 
 HELP_TEXT_CHAT = """
@@ -49,6 +50,7 @@ Type your prompt and press Enter to get a response.
 Options:
 /help or /? - Shows this menu
 /exit, /quit, or /bye - Exits the chat
+/file or /f - Uploads a file
 """
 
 if "--help" in sys.argv:
@@ -195,6 +197,35 @@ def getData(apiURL,inputModel,chat):
     elif inputPrompt in ['/help', '/?']:
         print(HELP_TEXT_CHAT)
         sys.exit(0)
+    elif inputPrompt in ['/file', '/f']:
+        print('File Path:')
+        fileInput = input('> ')
+        with open(fileInput, 'r') as file:
+            fileContent = file.read()
+            getPromptAfterFile = input('Prompt: \n> ')
+            inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {getPromptAfterFile}"
+    else:
+        pass
+    
+    # File options
+    if "-f" in sys.argv:
+        fileFlag = sys.argv.index("-f")
+        if fileFlag + 1 < len(sys.argv):
+            fileInput = sys.argv[fileFlag + 1]
+            with open(fileInput, 'r') as file:
+                fileContent = file.read()
+                inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {inputPrompt}"
+        else:
+            print("Flag -f expected 1 element, got 0")
+    elif '--file' in sys.argv:
+        fileOption = sys.argv.index("--file")
+        if fileOption + 1 < len(sys.argv):
+            fileInput = sys.argv[fileOption + 1]
+            with open(fileInput, 'r') as file:
+                fileContent = file.read()
+                inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {inputPrompt}"
+        else:
+            print("Option --file expected 1 element, got 0")
     else:
         pass
 

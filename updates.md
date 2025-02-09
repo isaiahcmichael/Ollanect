@@ -1,5 +1,12 @@
 # Ollanect Updates
 
+## Latest Commits
+Added file uploading support!
+
+Fixed a bug that would prevent Ollanect from starting. (Commit [d476e6f](https://github.com/isaiahcmichael/Ollanect/commit/d476e6fcbc94b0537fc75b541acf1d9e3c7ea8ce) fixed this bug)
+
+See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
+
 ## v0.2.0
 Added Windows [installer](./src/scripts/install-Windows.bat) and [setup](./src/Ollanect/setup-Windows.bat) files!
 
