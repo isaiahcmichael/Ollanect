@@ -5,6 +5,10 @@ Added file uploading support!
 
 Fixed a bug that would prevent Ollanect from starting. (Commit [d476e6f](https://github.com/isaiahcmichael/Ollanect/commit/d476e6fcbc94b0537fc75b541acf1d9e3c7ea8ce) fixed this bug)
 
+Added HTTPS support for Ollama server. (The config files need to be remade)
+
+Added "This file is part of Ollanect." to every file that didn't have it already.
+
 See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
 
 ## v0.2.0

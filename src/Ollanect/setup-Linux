@@ -22,6 +22,16 @@ appDIR="$(dirname "$(realpath "$0")")"
 mkdir ~/.config/Ollanect
 touch ~/.config/Ollanect/serverInfo
 
+echo "Does your Ollama Server use HTTPS? (y/N)"
+read ServerHTTPS
+if [[ "$ServerHTTPS" == 'y' ]]; then
+    printf "https://" >> ~/.config/Ollanect/serverInfo
+elif [[ "$ServerHTTPS" == 'Y' ]]; then
+    printf "https://" >> ~/.config/Ollanect/serverInfo
+else
+    printf "http://" >> ~/.config/Ollanect/serverInfo
+fi
+
 echo "What is your Ollama Server URL (Do not include port and HTTP)"
 read ServerURL
 printf "$ServerURL" >> ~/.config/Ollanect/serverInfo
@@ -38,3 +48,5 @@ fi
 
 echo 'Complete!'
 python3 $appDIR/ollanect.py
+
+# End of Ollanect File

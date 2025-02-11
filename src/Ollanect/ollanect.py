@@ -20,7 +20,7 @@ import os
 import sys
 
 LICENSE_TEXT = """
-Ollanect - Version 0.2.0 (Commit 2)
+Ollanect - Version 0.2.0 (Commit 3)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -106,7 +106,7 @@ def getServer(infoFile):
 inputServer = getServer(infoFile)
 
 # Defines the URL for the Ollama Server
-apiURL = f"http://{inputServer}/api/"
+apiURL = f"{inputServer}/api/"
 
 def getModel():
     if "-m" in sys.argv:
