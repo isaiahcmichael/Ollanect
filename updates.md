@@ -9,6 +9,8 @@ Added HTTPS support for Ollama server. (The config files need to be remade)
 
 Added "This file is part of Ollanect." to every file that didn't have it already.
 
+Added -s and --server option/flag to Ollanect. This allows the user to change the server that Ollanect connects to. When using the flag, the serverInfo file will not be read.
+
 See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
 
 ## v0.2.0

@@ -45,6 +45,12 @@ Displays Ollanect's chat commands. See [**Chat Commands**](#chat-commands) for c
 ## `--version` or `-v`
 Displays Ollanect's commands and License.
 
+## `--server` or `-s`
+Specifies the server to connect to. Ollanect does not read the serverInfo file when run. Example:
+```sh
+ollanect --server http://localhost:1234
+```
+
 ## Chat Commands
 
 When in chat mode, you can use the following commands:

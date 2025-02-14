@@ -77,33 +77,46 @@ elif '-v' in sys.argv:
 
 # Finds the config file for Ollanect. If not found, the setup script runs
 systemOS = platform.system()
-try:
-    scriptLocation = os.path.dirname(os.path.realpath(__file__))
-    if systemOS == 'Linux':
-        userHome = os.environ['HOME']
-        infoFile = open(f'{userHome}/.config/Ollanect/serverInfo', 'r')
-    elif systemOS == 'Windows':
-        appData = os.environ['APPDATA']
-        infoFile = open(f'{appData}/Ollanect/serverInfo.txt', 'r')
-except FileNotFoundError:
-    if systemOS == 'Linux':
-        scriptLocation = os.path.dirname(os.path.realpath(__file__))
-        os.system(f'chmod +x {scriptLocation}/setup-Linux')
-        os.system(f'sh {scriptLocation}/setup-Linux')
-        quit()
-    elif systemOS == 'Windows':
-        os.system(r'"C:\Program Files\Ollanect\ollanectSetupWindows.bat"')
-        quit()
 
-def getServer(infoFile):
+def getServer():
     # Gets the server info
+    try:
+        scriptLocation = os.path.dirname(os.path.realpath(__file__))
+        if systemOS == 'Linux':
+            userHome = os.environ['HOME']
+            infoFile = open(f'{userHome}/.config/Ollanect/serverInfo', 'r')
+        elif systemOS == 'Windows':
+            appData = os.environ['APPDATA']
+            infoFile = open(f'{appData}/Ollanect/serverInfo.txt', 'r')
+    except FileNotFoundError:
+        if systemOS == 'Linux':
+            scriptLocation = os.path.dirname(os.path.realpath(__file__))
+            os.system(f'chmod +x {scriptLocation}/setup-Linux')
+            os.system(f'sh {scriptLocation}/setup-Linux')
+            quit()
+        elif systemOS == 'Windows':
+            os.system(r'"C:\Program Files\Ollanect\ollanectSetupWindows.bat"')
+            quit()
     lines = infoFile.readlines()
     if lines:
         inputServer = lines[0]
     infoFile.close()
     return inputServer
 
-inputServer = getServer(infoFile)
+if '-s' in sys.argv:
+    sFlag = sys.argv.index('-s')
+    if sFlag + 1 < len(sys.argv):
+        inputServer = sys.argv[sFlag + 1]
+    else:
+        print("Flag -s expected one argument, got 0.")
+elif '--server' in sys.argv:
+    sOption = sys.argv.index('--server')
+    if sOption + 1 < len(sys.argv):
+        inputServer = sys.argv[sOption + 1]
+    else:
+        print("Option --server expected one argument, got 0.")
+else:
+    inputServer = getServer()
 
 # Defines the URL for the Ollama Server
 apiURL = f"{inputServer}/api/"
