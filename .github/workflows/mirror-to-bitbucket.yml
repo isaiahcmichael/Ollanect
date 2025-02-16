@@ -11,7 +11,10 @@ jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
 
       - name: Set up Git credentials
         run: |
@@ -19,6 +22,6 @@ jobs:
 
       - name: Push to Bitbucket
         run: |
-          REPO_URL="https://bitbucket.org/isaiahcmichael/Ollanect.git" # Public URL directly here
+          REPO_URL="https://bitbucket.org/isaiahcmichael/Ollanect.git"
           git remote add bitbucket "$REPO_URL"
           git push --mirror bitbucket
