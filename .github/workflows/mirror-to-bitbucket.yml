@@ -1,21 +1,24 @@
 name: Mirror to Bitbucket
 
 on:
+  push:
+    branches: [main] # Or other triggers as needed
   schedule:
-    - cron: '0 0 */2 * *' 
-  workflow_dispatch:
+    - cron: '0 0 */2 * *' # Every 2 days
+  workflow_dispatch: # Manual trigger
 
 jobs:
   mirror:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+
+      - name: Set up Git credentials
+        run: |
+          git config --global url."https://${{ secrets.BITBUCKET_USERNAME }}:${{ secrets.BITBUCKET_APP_PASSWORD }}@bitbucket.org/".insteadOf "https://bitbucket.org/"
 
       - name: Push to Bitbucket
         run: |
-          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/isaiahcmichael/Ollanect.git
+          REPO_URL="https://bitbucket.org/isaiahcmichael/Ollanect.git" # Public URL directly here
+          git remote add bitbucket "$REPO_URL"
           git push --mirror bitbucket
-        env:
-          BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
-          BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
