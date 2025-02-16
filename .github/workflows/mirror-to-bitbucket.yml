@@ -1,0 +1,21 @@
+name: Mirror to Bitbucket
+
+on:
+  schedule:
+    - cron: '0 0 */2 * *' 
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Push to Bitbucket
+        run: |
+          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/isaiahcmichael/Ollanect.git
+          git push --mirror --force bitbucket main
+        env:
+          BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+          BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}

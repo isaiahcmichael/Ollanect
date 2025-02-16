@@ -94,3 +94,7 @@ This program comes with ABSOLUTELY NO WARRANTY. It is free software, and you are
 
 - `requests` (Apache 2.0 License)
 - Python Standard Library (`json`, `os`, `platform`)
+
+## Mirrors
+
+If you need or require the use of a mirror at a different location, you can find a mirror at [Bitbucket](https://bitbucket.org/isaiahcmichael/ollanect/src/main/)
