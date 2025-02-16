@@ -15,7 +15,7 @@ jobs:
       - name: Push to Bitbucket
         run: |
           git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.org/isaiahcmichael/Ollanect.git
-          git push --mirror --force bitbucket main
+          git push --mirror bitbucket main
         env:
           BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
           BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
