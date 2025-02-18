@@ -101,3 +101,4 @@ If you need or require the use of a mirror (or a different website), you can fin
 
 - [GitHub](https://github.com/isaiahcmichael/ollanect), the main source.
 - [Bitbucket](https://bitbucket.org/isaiahcmichael/ollanect/src/main/), updated by GitHub actions as a commit is pushed to GitHub.
+- [Gitea](https://gitea.com/isaiahcmichael/Ollanect), updated by GitHub actions as a commit is pushed to GitHub.

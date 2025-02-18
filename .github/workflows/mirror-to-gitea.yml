@@ -1,0 +1,27 @@
+name: Mirror to Gitea
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 0 */2 * *'
+  workflow_dispatch:
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git credentials
+        run: |
+          git config --global url."https://${{ secrets.GITEA_USERNAME }}:${{ secrets.GITEA_APP_PASSWORD }}@gitea.com/".insteadOf "https://gitea.com/"
+
+      - name: Push to Gitea
+        run: |
+          REPO_URL="https://gitea.com/isaiahcmichael/Ollanect.git"
+          git remote add gitea "$REPO_URL"
+          git push --mirror gitea
