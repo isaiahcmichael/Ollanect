@@ -93,8 +93,11 @@ This program comes with ABSOLUTELY NO WARRANTY. It is free software, and you are
 ## Dependencies
 
 - `requests` (Apache 2.0 License)
-- Python Standard Library (`json`, `os`, `platform`)
+- Python Standard Library (`json`, `os`, `platform`, `zipfile`)
 
 ## Mirrors
 
-If you need or require the use of a mirror at a different location, you can find a mirror at [Bitbucket](https://bitbucket.org/isaiahcmichael/ollanect/src/main/)
+If you need or require the use of a mirror (or a different website), you can find official Ollanect packages at the below locations.
+
+- [GitHub](https://github.com/isaiahcmichael/ollanect), the main source.
+- [Bitbucket](https://bitbucket.org/isaiahcmichael/ollanect/src/main/), updated by GitHub actions as a commit is pushed to GitHub.

@@ -18,9 +18,10 @@ import json
 import platform
 import os
 import sys
+import zipfile
 
 LICENSE_TEXT = """
-Ollanect - Version 0.2.0 (Commit 3)
+Ollanect - Version 0.2.0 (Commit 4)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -41,6 +42,7 @@ Options:
 --prompt or -p - Specifies Prompt (example --prompt 'When was GitHub created?')
 --version or -v - Prints the version of Ollanect
 --file or -f - Uploads a file
+--addon or -a - Uses an addon
 """
 
 HELP_TEXT_CHAT = """
@@ -74,6 +76,102 @@ elif '--version' in sys.argv:
 elif '-v' in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
+
+# Addon support
+if '--addon' in sys.argv:
+    addonOption = sys.argv.index('--addon')
+    if addonOption + 1 < len(sys.argv):
+        addon = sys.argv[addonOption + 1]
+    else:
+        print("Option --addon expected two arguments, got 0.")
+elif '-a' in sys.argv:
+    addonFlag = sys.argv.index('-a')
+    if addonFlag + 1 < len(sys.argv):
+        addon = sys.argv[addonFlag + 1]
+    else:
+        print("Flag -a expected two arguments, got 0.")
+else:
+    addon = False
+
+if addon == False:
+    pass
+elif addon == 'install':
+    addonInstall = sys.argv.index('install')
+    if addonInstall + 1 < len(sys.argv):
+        addonURL = sys.argv[addonInstall + 1]
+        URLcheck = requests.get(addonURL)
+        scriptLocation = os.path.dirname(os.path.realpath(__file__))
+        scriptParent = os.path.dirname(scriptLocation)
+        if URLcheck.status_code == 200:
+            fileName = addonURL.split('/')[-1]
+            addonDirectory = os.path.join(scriptParent, 'addons', fileName)
+            os.makedirs(addonDirectory, exist_ok=True)
+            infoFile = os.path.join(addonDirectory, fileName)
+            with open(infoFile, 'wb') as file:
+                file.write(URLcheck.content)
+                lines = infoFile.readlines()
+                if lines:
+                    zipCheck = requests.get(lines[1])
+                    if zipCheck.status_code == 200:
+                        zipPath = f'{addonDirectory}/{fileName}.zip'
+                        with open(zipPath, 'wb') as zipFile:
+                            zipFile.write(zipCheck.content)
+                        with zipfile.ZipFile(zipPath, 'r') as zipFileWritten:
+                            zipFileWritten.extractall(addonDirectory)
+                            print(f'Addon {fileName} installed successfully!')
+                            quit()
+    else:
+        print("Option --addon install expected one argument, got 0.")
+        quit()
+elif addon == 'remove':
+    addonRemove = sys.argv.index('remove')
+    if addonRemove + 1 < len(sys.argv):
+        addonName = sys.argv[addonRemove + 1]
+        scriptLocation = os.path.dirname(os.path.realpath(__file__))
+        scriptParent = os.path.dirname(scriptLocation)
+        addonDirectory = os.path.join(scriptParent, 'addons', addonName)
+        if os.path.exists(addonDirectory):
+            os.remove(addonDirectory)
+            print(f'Addon {addonName} removed successfully!')
+            quit()
+        else:
+            print(f'Addon {addonName} does not exist.')
+            quit()
+    else:
+        print("Option --addon remove expected one argument, got 0.")
+        quit()
+elif addon == 'list':
+    scriptLocation = os.path.dirname(os.path.realpath(__file__))
+    scriptParent = os.path.dirname(scriptLocation)
+    addonsDirectory = os.path.join(scriptParent, 'addons')
+    if os.path.exists(addonsDirectory):
+        print('Addons:')
+        for file in os.listdir(addonsDirectory):
+            print(file)
+        quit()
+    else:
+        print('No addons found.')
+        quit()
+elif addon == 'run':
+    addonRun = sys.argv.index('run')
+    if addonRun + 1 < len(sys.argv):
+        addonName = sys.argv[addonRun + 1]
+        scriptLocation = os.path.dirname(os.path.realpath(__file__))
+        scriptParent = os.path.dirname(scriptLocation)
+        addonDirectory = os.path.join(scriptParent, 'addons', addonName)
+        if os.path.exists(addonDirectory):
+            addonScript = os.path.join(addonDirectory, 'main.py')
+            os.system(f'python3 {addonScript}')
+            quit()
+        else:
+            print(f'Addon {addonName} does not exist.')
+            quit()
+    else:
+        print("Option --addon run expected one argument, got 0.")
+        quit()
+else:
+    print(f'Option --addon does not have option {addon}.')
+    quit()
 
 # Finds the config file for Ollanect. If not found, the setup script runs
 systemOS = platform.system()
