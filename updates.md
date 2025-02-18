@@ -1,6 +1,6 @@
 # Ollanect Updates
 
-## Latest Commits
+## v0.2.2
 Added file uploading support!
 
 Fixed a bug that would prevent Ollanect from starting. (Commit [d476e6f](https://github.com/isaiahcmichael/Ollanect/commit/d476e6fcbc94b0537fc75b541acf1d9e3c7ea8ce) fixed this bug)
@@ -13,7 +13,7 @@ Added -s and --server option/flag to Ollanect. This allows the user to change th
 
 Added support for user addons. Read more in [help/ollanectAddons.md](./help/ollanectAddons.md).
 
-See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
+See [Ollanect v0.2.2](https://github.com/isaiahcmichael/Ollanect/tree/v0.2.2) for files.
 
 ## v0.2.0
 Added Windows [installer](./src/scripts/install-Windows.bat) and [setup](./src/Ollanect/setup-Windows.bat) files!
