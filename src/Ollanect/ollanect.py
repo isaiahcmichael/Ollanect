@@ -313,8 +313,8 @@ def getData(apiURL,inputModel,chat):
         fileInput = input('> ')
         with open(fileInput, 'r') as file:
             fileContent = file.read()
-            getPromptAfterFile = input('Prompt: \n> ')
-            inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {getPromptAfterFile}"
+            inputPrompt = input('Prompt: \n> ')
+            systemPrompt = f"You are a helpful assistant. This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's prompt."
     else:
         pass
     
@@ -325,7 +325,7 @@ def getData(apiURL,inputModel,chat):
             fileInput = sys.argv[fileFlag + 1]
             with open(fileInput, 'r') as file:
                 fileContent = file.read()
-                inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {inputPrompt}"
+                systemPrompt = f"You are a helpful assistant. This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's prompt."
         else:
             print("Flag -f expected 1 element, got 0")
     elif '--file' in sys.argv:
@@ -334,16 +334,17 @@ def getData(apiURL,inputModel,chat):
             fileInput = sys.argv[fileOption + 1]
             with open(fileInput, 'r') as file:
                 fileContent = file.read()
-                inputPrompt = f"This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's following prompt: {inputPrompt}"
+                systemPrompt = f"You are a helpful assistant. This is the file that the User has uploaded to you: {fileContent} Anylize the file and give a response based on the User's prompt."
         else:
             print("Option --file expected 1 element, got 0")
     else:
-        pass
+        systemPrompt = "You are a helpful assistant. Anylize the User's prompt and give a response based on the User's prompt."
 
     # Defines what is sent to the server and sends it (requests.post)
     payload = {
         "model": inputModel,
         "prompt": inputPrompt,
+        "system": systemPrompt,
         "stream": True  # Streaming mode
     }
     try:

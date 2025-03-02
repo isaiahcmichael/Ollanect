@@ -1,5 +1,13 @@
 # Ollanect Updates
 
+## Latest Commits
+
+Added a system prompt for default prompt.
+
+Changed the system prompt for file uploading.
+
+See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
+
 ## v0.2.2
 Added file uploading support!
 
