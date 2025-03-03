@@ -1,0 +1,45 @@
+name: Mirror to Bitbucket and Gitea
+
+on:
+  push:
+    branches: [main] # Or other triggers as needed
+  schedule:
+    - cron: '0 0 */2 * *' # Every 2 days
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  mirror-to-bitbucket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches and tags
+
+      - name: Set up Git credentials for Bitbucket
+        run: |
+          git config --global url."https://${{ secrets.BITBUCKET_USERNAME }}:${{ secrets.BITBUCKET_APP_PASSWORD }}@bitbucket.org/".insteadOf "https://bitbucket.org/"
+
+      - name: Push to Bitbucket
+        run: |
+          REPO_URL="https://bitbucket.org/isaiahcmichael/Ollanect.git"
+          git remote add bitbucket "$REPO_URL"
+          git push --mirror bitbucket
+
+  mirror-to-gitea:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git credentials for Gitea
+        run: |
+          git config --global url."https://${{ secrets.GITEA_USERNAME }}:${{ secrets.GITEA_APP_PASSWORD }}@gitea.com/".insteadOf "https://gitea.com/"
+
+      - name: Push to Gitea
+        run: |
+          REPO_URL="https://gitea.com/isaiahcmichael/Ollanect.git"
+          git remote add gitea "$REPO_URL"
+          git push --mirror gitea

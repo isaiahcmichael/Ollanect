@@ -21,7 +21,7 @@ import sys
 import zipfile
 
 LICENSE_TEXT = """
-Ollanect - Version 0.2.0 (Commit 4)
+Ollanect - Version 0.2.2 (plus Commits)
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -67,14 +67,39 @@ elif '-h' in sys.argv:
 else:
     pass
 
+def versionCheck():
+    githubReleases = 'https://api.github.com/repos/isaiahcmichael/Ollanect/releases/latest'
+    githubResponse = requests.get(githubReleases)
+    currentVersion = 'v0.2.2.2'
+
+    def makeNumber(version: str):
+        return tuple(map(int, version.lstrip('v').split('.')))
+
+    try:
+        if githubResponse.status_code == 200:
+            githubData = githubResponse.json()
+            latestVersion = githubData['tag_name']
+            currentVersionT = makeNumber(currentVersion)
+            latestVersionT = makeNumber(latestVersion)
+            if latestVersionT > currentVersionT:
+                print(f'New version available: {latestVersion}')
+            elif latestVersionT < currentVersionT:
+                print('You are using a development version of Ollanect.')
+            else:
+                print(f'You are using the latest version of Ollanect. ({currentVersion})')
+    except Exception as e:
+        print(f'Error checking for updates: {e}')
+
 if "--license" in sys.argv:
     print(LICENSE_TEXT)
     sys.exit(0)
 elif '--version' in sys.argv:
     print(LICENSE_TEXT)
+    versionCheck()
     sys.exit(0)
 elif '-v' in sys.argv:
     print(LICENSE_TEXT)
+    versionCheck()
     sys.exit(0)
 
 # Addon support

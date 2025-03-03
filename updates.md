@@ -6,6 +6,12 @@ Added a system prompt for default prompt.
 
 Changed the system prompt for file uploading.
 
+Put mirrors into one workflow instead of two.
+
+Added ability to check for updates with --version and -v.
+
+Added Linux installation on Root for all users.
+
 See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
 
 ## v0.2.2

@@ -43,7 +43,7 @@ ollanect -p 'When was GitHub created?'
 Displays Ollanect's chat commands. See [**Chat Commands**](#chat-commands) for chat commands.
 
 ## `--version` or `-v`
-Displays Ollanect's commands and License.
+Displays Ollanect's commands and License. Also checks to see if a new update is available.
 
 ## `--server` or `-s`
 Specifies the server to connect to. Ollanect does not read the serverInfo file when run. Example:

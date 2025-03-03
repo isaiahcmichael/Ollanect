@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# This file is part of Ollanect.
+#
+# Ollanect is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ollanect is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ollanect. If not, see <https://www.gnu.org/licenses/>.
+
+setupDIR="$(dirname "$(realpath "$0")")"
+
+echo "This is the installation for Ollanect (Linux - Root)"
+echo "This will install Ollanect to /usr/local/share/ and the executable to /usr/bin/"
+echo "Would you like to continue? (Y/n)"
+read OllanectInstall
+
+if [[ "$OllanectInstall" == '' ]]; then
+    sudo echo 'Installing'
+    sudo mkdir /usr/local/share/Ollanect
+    echo "#!/bin/python3" | cat - ./ollanect.py > temp && mv temp ./ollanect.py
+    sudo cp $setupDIR/ollanect.py /usr/local/share/Ollanect/ollanect.py
+    sudo cp $setupDIR/setup-Linux /usr/local/share/Ollanect/setup-Linux
+    sudo chmod +x /usr/local/share/Ollanect/*
+    sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
+    sudo chmod +x /usr/bin/ollanect
+    sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
+    pip install -r requirements.txt
+    echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
+elif [[ "$OllanectInstall" == ' ' ]]; then
+    sudo echo 'Installing'
+    sudo mkdir /usr/local/share/Ollanect
+    echo "#!/bin/python3" | cat - ./ollanect.py > temp && mv temp ./ollanect.py
+    sudo cp $setupDIR/ollanect.py /usr/local/share/Ollanect/ollanect.py
+    sudo cp $setupDIR/setup-Linux /usr/local/share/Ollanect/setup-Linux
+    sudo chmod +x /usr/local/share/Ollanect/*
+    sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
+    sudo chmod +x /usr/bin/ollanect
+    sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
+    pip install -r requirements.txt
+    echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
+elif [[ "$OllanectInstall" == 'Y' ]]; then
+    sudo echo 'Installing'
+    sudo mkdir /usr/local/share/Ollanect
+    echo "#!/bin/python3" | cat - ./ollanect.py > temp && mv temp ./ollanect.py
+    sudo cp $setupDIR/ollanect.py /usr/local/share/Ollanect/ollanect.py
+    sudo cp $setupDIR/setup-Linux /usr/local/share/Ollanect/setup-Linux
+    sudo chmod +x /usr/local/share/Ollanect/*
+    sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
+    sudo chmod +x /usr/bin/ollanect
+    sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
+    pip install -r requirements.txt
+    echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
+elif [[ "$OllanectInstall" == 'y' ]]; then
+    sudo echo 'Installing'
+    sudo mkdir /usr/local/share/Ollanect
+    echo "#!/bin/python3" | cat - ./ollanect.py > temp && mv temp ./ollanect.py
+    sudo cp $setupDIR/ollanect.py /usr/local/share/Ollanect/ollanect.py
+    sudo cp $setupDIR/setup-Linux /usr/local/share/Ollanect/setup-Linux
+    sudo chmod +x /usr/local/share/Ollanect/*
+    sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
+    sudo chmod +x /usr/bin/ollanect
+    sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
+    pip install -r requirements.txt
+    echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
+elif [[ "$OllanectInstall" = 'N' ]]; then
+    echo 'Exiting!'
+    exit 0
+elif [[ "$OllanectInstall" = 'n' ]]; then
+    echo 'Exiting!'
+    exit 0
+else
+    echo 'Please re-run the install and enter either y or n'
+    exit 0
+fi
+
+# End of Ollanect File.

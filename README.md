@@ -30,6 +30,15 @@ chmod +x ./install-Linux
 ./install-Linux
 ```
 
+### Install (Linux (All Users) - Offical ZIP)
+To install Ollanect on Linux using the Offical ZIP for all users, you must unzip the ZIP file. You can download the ZIP file from the [releases page](https://github.com/isaiahcmichael/ollanect/releases/latest). After unzipping the zip file, you will run the following commands:
+
+```sh
+cd OllanectV{version} # Replace {version} with the version number
+chmod +x ./install-Linux-root
+sudo ./install-Linux-root
+```
+
 ### Install (Windows - Official ZIP)
 To install Ollanect on Windows using the official ZIP, you must unzip the ZIP file. You can download the ZIP file from the [releases page](https://github.com/isaiahcmichael/ollanect/releases/latest). After unzipping the zip file, you will need to run `install-Windows.bat` as Admin.
 
@@ -44,7 +53,7 @@ git clone https://github.com/isaiahcmichael/Ollanect.git
 After cloning the files, you will need the following files in a directory together:
 - `src/Ollanect/ollanect.py`
 - `src/Ollanect/setup-Linux`
-- `src/scripts/install-Linux`
+- `src/scripts/install-Linux` or `src/scripts/install-Linux-root`
 - `requirements.txt`
 - `LICENSE`
 
@@ -52,7 +61,7 @@ After putting all of the files above into a directory, you will need to run the 
 
 ```sh
 chmod +x ./install-Linux
-./install-Linux
+./install-Linux # You can run ./install-Linux-root if you want to install for all users
 ```
 
 #### Installing Cloned Files (Windows)
@@ -102,3 +111,5 @@ If you need or require the use of a mirror (or a different website), you can fin
 - [GitHub](https://github.com/isaiahcmichael/ollanect), the main source.
 - [Bitbucket](https://bitbucket.org/isaiahcmichael/ollanect/src/main/), updated by GitHub actions as a commit is pushed to GitHub.
 - [Gitea](https://gitea.com/isaiahcmichael/Ollanect), updated by GitHub actions as a commit is pushed to GitHub.
+
+You may see the GitHub Actions file at [`.github/workflows/mirrors.yml`](./.github/workflows/mirrors.yml) to see how the mirrors are updated.

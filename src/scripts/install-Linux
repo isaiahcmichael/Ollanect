@@ -17,7 +17,7 @@
 
 setupDIR="$(dirname "$(realpath "$0")")"
 
-echo "This is the installation for Ollanect"
+echo "This is the installation for Ollanect (Linux - User)"
 echo "This will install Ollanect to ~/.local/share/ and the executable to ~/.local/bin/"
 echo "Would you like to continue? (Y/n)"
 read OllanectInstall
