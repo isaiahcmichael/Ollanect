@@ -21,7 +21,10 @@ set "ollanectInstall=C:\Program Files\Ollanect"
 md "C:\Program Files\Ollanect"
 COPY ollanect.py "C:\Program Files\Ollanect\ollanect.py"
 COPY setup-Windows.bat "C:\Program Files\Ollanect\ollanectSetupWindows.bat"
-COPY LICENSE "C:\Program Files\Ollanect\ollanect-LICENSE"
+COPY LICENSE "C:\Program Files\Ollanect\LICENSE"
+md "C:\Program Files\Ollanect\Licenses"
+COPY "%~dp0Licenses\requests-LICENSE" "C:\Program Files\Ollanect\Licenses\requests-LICENSE.txt"
+COPY "%~dp0Licenses\py-standardlib-LICENSE" "C:\Program Files\Ollanect\Licenses\py-standardlib-LICENSE.txt"
 setx /M PATH "%PATH%;%ollanectInstall%"
 pip install -r requirements.txt
 

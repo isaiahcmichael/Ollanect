@@ -31,6 +31,7 @@ if [[ "$OllanectInstall" == '' ]]; then
     chmod +x ~/.local/share/Ollanect/*
     ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
+    cp -r $setupDIR/Licenses ~/.local/share/Ollanect/Licenses
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Adding Config file now!"
@@ -44,6 +45,7 @@ elif [[ "$OllanectInstall" == ' ' ]]; then
     chmod +x ~/.local/share/Ollanect/*
     ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
+    cp -r $setupDIR/Licenses ~/.local/share/Ollanect/Licenses
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Adding Config file now!"
@@ -57,6 +59,7 @@ elif [[ "$OllanectInstall" == 'Y' ]]; then
     chmod +x ~/.local/share/Ollanect/*
     ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
+    cp -r $setupDIR/Licenses ~/.local/share/Ollanect/Licenses
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Adding Config file now!"
@@ -70,6 +73,7 @@ elif [[ "$OllanectInstall" == 'y' ]]; then
     chmod +x ~/.local/share/Ollanect/*
     ln -s ~/.local/share/Ollanect/ollanect.py ~/.local/bin/ollanect
     chmod +x ~/.local/bin/ollanect
+    cp -r $setupDIR/Licenses ~/.local/share/Ollanect/Licenses
     cp $setupDIR/LICENSE ~/.local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Adding Config file now!"

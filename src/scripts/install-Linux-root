@@ -31,6 +31,7 @@ if [[ "$OllanectInstall" == '' ]]; then
     sudo chmod +x /usr/local/share/Ollanect/*
     sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
     sudo chmod +x /usr/bin/ollanect
+    sudo cp -r $setupDIR/Licenses /usr/local/share/Ollanect/Licenses
     sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
@@ -43,6 +44,7 @@ elif [[ "$OllanectInstall" == ' ' ]]; then
     sudo chmod +x /usr/local/share/Ollanect/*
     sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
     sudo chmod +x /usr/bin/ollanect
+    sudo cp -r $setupDIR/Licenses /usr/local/share/Ollanect/Licenses
     sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
@@ -55,6 +57,7 @@ elif [[ "$OllanectInstall" == 'Y' ]]; then
     sudo chmod +x /usr/local/share/Ollanect/*
     sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
     sudo chmod +x /usr/bin/ollanect
+    sudo cp -r $setupDIR/Licenses /usr/local/share/Ollanect/Licenses
     sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Run 'ollanect' in the terminal to set up!"
@@ -67,6 +70,7 @@ elif [[ "$OllanectInstall" == 'y' ]]; then
     sudo chmod +x /usr/local/share/Ollanect/*
     sudo ln -s /usr/local/share/Ollanect/ollanect.py /usr/bin/ollanect
     sudo chmod +x /usr/bin/ollanect
+    sudo cp -r $setupDIR/Licenses /usr/local/share/Ollanect/Licenses
     sudo cp $setupDIR/LICENSE /usr/local/share/Ollanect/LICENSE
     pip install -r requirements.txt
     echo "Installation Complete! Run 'ollanect' in the terminal to set up!"

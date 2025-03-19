@@ -12,9 +12,9 @@ You can see updates at [updates.md](./updates.md)
 
 ## Features
 
-- Connect to your Ollama server
-- Run models on your server
-- Save your server and port so you don't need to re-enter them every time!
+- Connect to your Ollama servers
+- Run models on your servers
+- Save up to 5 servers and ports at a time for easy access!
 
 ## Installation
 
@@ -98,11 +98,13 @@ Ollanect is licensed under the **GNU General Public License v3.0**.
 
 This program comes with ABSOLUTELY NO WARRANTY. It is free software, and you are welcome to redistribute it under certain conditions. See the full license in the [LICENSE](./LICENSE) file or at [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.html).
 
+Ollanect uses dependances which have their own licenses. You can find the licenses in the [Licenses](./Licenses) directory or in the [Dependencies](#dependencies) section.
+
 
 ## Dependencies
 
-- `requests` (Apache 2.0 License)
-- Python Standard Library (`json`, `os`, `platform`, `zipfile`)
+- `requests` ([Apache 2.0 License](./Licenses/requests-LICENSE))
+- Python Standard Library - `json`, `os`, `platform`, `zipfile` ([Python Software Foundation License](./Licenses/py-standardlib-LICENSE))
 
 ## Mirrors
 
