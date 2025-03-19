@@ -19,34 +19,46 @@ echo "This is the setup for Ollanect"
 
 appDIR="$(dirname "$(realpath "$0")")"
 
+configFileName="serverInfo"
+
+if [ "$1" == "-2" ]; then
+    configFileName="serverInfo-2"
+elif [ "$1" == "-3" ]; then
+    configFileName="serverInfo-3"
+elif [ "$1" == "-4" ]; then
+    configFileName="serverInfo-4"
+elif [ "$1" == "-5" ]; then
+    configFileName="serverInfo-5"
+fi
+
 mkdir ~/.config/Ollanect
-touch ~/.config/Ollanect/serverInfo
+touch ~/.config/Ollanect/$configFileName
 
 echo "Does your Ollama Server use HTTPS? (y/N)"
 read ServerHTTPS
 if [[ "$ServerHTTPS" == 'y' ]]; then
-    printf "https://" >> ~/.config/Ollanect/serverInfo
+    printf "https://" >> ~/.config/Ollanect/$configFileName
 elif [[ "$ServerHTTPS" == 'Y' ]]; then
-    printf "https://" >> ~/.config/Ollanect/serverInfo
+    printf "https://" >> ~/.config/Ollanect/$configFileName
 else
-    printf "http://" >> ~/.config/Ollanect/serverInfo
+    printf "http://" >> ~/.config/Ollanect/$configFileName
 fi
 
 echo "What is your Ollama Server URL (Do not include port and HTTP)"
 read ServerURL
-printf "$ServerURL" >> ~/.config/Ollanect/serverInfo
+printf "$ServerURL" >> ~/.config/Ollanect/$configFileName
 
 echo "What is the port of your Server? (The default port is 11434)"
 read ServerPort
 if [[ "$ServerPort" == '' ]]; then
-    printf ":11434" >> ~/.config/Ollanect/serverInfo
+    printf ":11434" >> ~/.config/Ollanect/$configFileName
 elif [[ "$ServerPort" == ' ' ]]; then
-    printf ":11434" >> ~/.config/Ollanect/serverInfo
+    printf ":11434" >> ~/.config/Ollanect/$configFileName
 else
-    printf ":$ServerPort" >> ~/.config/Ollanect/serverInfo
+    printf ":$ServerPort" >> ~/.config/Ollanect/$configFileName
 fi
 
 echo 'Complete!'
-python3 $appDIR/ollanect.py
+python3 $appDIR/ollanect.py $1
 
 # End of Ollanect File

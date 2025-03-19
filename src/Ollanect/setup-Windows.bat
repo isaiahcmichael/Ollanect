@@ -19,13 +19,24 @@ echo This is the setup for Ollanect
 
 set "configDir=%APPDATA%\Ollanect"
 mkdir "%configDir%" 2>nul
-echo. > "%configDir%\serverInfo.txt"
+
+set "serverInfoFile=serverInfo.txt"
+
+if "%~1"=="-2" (
+    set "serverInfoFile=serverInfo-2.txt"
+) else if "%~1"=="-3" (
+    set "serverInfoFile=serverInfo-3.txt"
+) else if "%~1"=="-4" (
+    set "serverInfoFile=serverInfo-4.txt"
+) else if "%~1"=="-5" (
+    set "serverInfoFile=serverInfo-5.txt"
+)
+
+echo. > "%configDir%\%serverInfoFile%"
 
 set /p ServerHTTPS=Is your Ollama Server using HTTPS? (y/N)
-if "%ServerHTTPS%"=="y" set ServerHTTPS="https://"
-if "%ServerHTTPS%"=="Y" set ServerHTTPS="https://"
-if "%ServerHTTPS%"=="n" set ServerHTTPS="http://"
-if "%ServerHTTPS%"=="N" set ServerHTTPS="http://"
+if /I "%ServerHTTPS%"=="y" set ServerHTTPS="https://"
+if /I "%ServerHTTPS%"=="n" set ServerHTTPS="http://"
 if "%ServerHTTPS%"=="" set ServerHTTPS="http://"
 if "%ServerHTTPS%"==" " set ServerHTTPS="http://"
 
@@ -35,9 +46,9 @@ set /p ServerPort=What is the port of your Server? (The default port is 11434)?
 if "%ServerPort%"=="" set ServerPort=11434
 if "%ServerPort%"==" " set ServerPort=11434
 
-echo %ServerHTTPS%%ServerURL%:%ServerPort%> "%configDir%\serverInfo.txt"
+echo %ServerHTTPS%%ServerURL%:%ServerPort%> "%configDir%\%serverInfoFile%"
 
 echo Complete!
-python "%~dp0ollanect.py"
+python "%~dp0ollanect.py" "%~1"
 
 :: End of Ollanect File.

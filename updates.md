@@ -12,6 +12,8 @@ Added ability to check for updates with --version and -v.
 
 Added Linux installation on Root for all users.
 
+Support for up to 5 server config files.
+
 See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
 
 ## v0.2.2

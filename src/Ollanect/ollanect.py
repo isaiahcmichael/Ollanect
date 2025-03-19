@@ -203,23 +203,57 @@ systemOS = platform.system()
 
 def getServer():
     # Gets the server info
+
+    # Checks if the user specified a server file
+    if '-1' in sys.argv:
+        serverFile = "Ollanect/serverInfo"
+        altFile = False
+    elif '-2' in sys.argv:
+        serverFileTag = '-2'
+        serverFile = "Ollanect/serverInfo-2"
+        altFile = True
+    elif '-3' in sys.argv:
+        serverFileTag = '-3'
+        serverFile = "Ollanect/serverInfo-3"
+        altFile = True
+    elif '-4' in sys.argv:
+        serverFileTag = '-4'
+        serverFile = "Ollanect/serverInfo-4"
+        altFile = True
+    elif '-5' in sys.argv:
+        serverFileTag = '-5'
+        serverFile = "Ollanect/serverInfo-5"
+        altFile = True
+    else:
+        serverFile = "Ollanect/serverInfo"
+        altFile = False
+
     try:
         scriptLocation = os.path.dirname(os.path.realpath(__file__))
         if systemOS == 'Linux':
             userHome = os.environ['HOME']
-            infoFile = open(f'{userHome}/.config/Ollanect/serverInfo', 'r')
+            infoFile = open(f'{userHome}/.config/{serverFile}', 'r')
         elif systemOS == 'Windows':
             appData = os.environ['APPDATA']
-            infoFile = open(f'{appData}/Ollanect/serverInfo.txt', 'r')
+            infoFile = open(f'{appData}/{serverFile}.txt', 'r')
     except FileNotFoundError:
         if systemOS == 'Linux':
             scriptLocation = os.path.dirname(os.path.realpath(__file__))
-            os.system(f'chmod +x {scriptLocation}/setup-Linux')
-            os.system(f'sh {scriptLocation}/setup-Linux')
-            quit()
+            if altFile == True:
+                os.system(f'chmod +x {scriptLocation}/setup-Linux')
+                os.system(f'sh {scriptLocation}/setup-Linux {serverFileTag}')
+                quit()
+            else:
+                os.system(f'chmod +x {scriptLocation}/setup-Linux')
+                os.system(f'sh {scriptLocation}/setup-Linux')
+                quit()
         elif systemOS == 'Windows':
-            os.system(r'"C:\Program Files\Ollanect\ollanectSetupWindows.bat"')
-            quit()
+            if altFile == True:
+                os.system(rf'"C:\Program Files\Ollanect\ollanectSetupWindows.bat" {serverFileTag}')
+                quit()
+            else:
+                os.system(r'"C:\Program Files\Ollanect\ollanectSetupWindows.bat"')
+                quit()
     lines = infoFile.readlines()
     if lines:
         inputServer = lines[0]

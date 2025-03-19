@@ -51,6 +51,19 @@ Specifies the server to connect to. Ollanect does not read the serverInfo file w
 ollanect --server http://localhost:1234
 ```
 
+## `-1`, `-2`, `-3`, `-4`, and `-5`
+These flags are used to open a different server. There is a max of 5 servers. Example:
+```sh
+ollanect -1 
+# uses file serverInfo or serverInfo.txt
+# same as running Ollanect without any flags
+```
+
+```sh
+ollanect -3
+# uses file serverInfo-3 or serverInfo-3.txt
+```
+
 ## Chat Commands
 
 When in chat mode, you can use the following commands:
