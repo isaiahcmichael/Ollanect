@@ -1,6 +1,6 @@
 # Ollanect Updates
 
-## Latest Commits
+## v0.3
 
 Added a system prompt for default prompt.
 
@@ -14,7 +14,7 @@ Added Linux installation on Root for all users.
 
 Support for up to 5 server config files.
 
-See [Ollanect Main Branch](https://github.com/isaiahcmichael/Ollanect/tree/main) for files.
+See [Ollanect v0.3](https://github.com/isaiahcmichael/Ollanect/tree/v0.3) for files.
 
 ## v0.2.2
 Added file uploading support!

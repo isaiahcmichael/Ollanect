@@ -21,7 +21,7 @@ import sys
 import zipfile
 
 LICENSE_TEXT = """
-Ollanect - Version 0.2.2 (plus Commits)
+Ollanect - Version 0.3
 Copyright (C) 2025 Isaiah Michael
 
 This program comes with ABSOLUTELY NO WARRANTY.
@@ -43,6 +43,7 @@ Options:
 --version or -v - Prints the version of Ollanect
 --file or -f - Uploads a file
 --addon or -a - Uses an addon
+-1, -2, -3, -4, -5 - Uses a different server file (by default, -1 is the flag used by Ollanect)
 """
 
 HELP_TEXT_CHAT = """
@@ -70,7 +71,7 @@ else:
 def versionCheck():
     githubReleases = 'https://api.github.com/repos/isaiahcmichael/Ollanect/releases/latest'
     githubResponse = requests.get(githubReleases)
-    currentVersion = 'v0.2.2.2'
+    currentVersion = 'v0.3'
 
     def makeNumber(version: str):
         return tuple(map(int, version.lstrip('v').split('.')))
